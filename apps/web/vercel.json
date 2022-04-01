@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "name": "turbo-monorepo",
+  "alias": ["turbomonorepo.com"],
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/next",
+      "config": {
+        "maxLambdaSize": "25mb"
+      }
+    }
+  ],
+  "build": {
+    "env": {
+      "TEST_ENV": "@test_env"
+    }
+  },
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/index",
+      "headers": { "Cache-Control": "s-maxage=2592000" }
+    }
+  ]
+}
